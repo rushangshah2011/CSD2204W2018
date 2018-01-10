@@ -1,0 +1,481 @@
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Calibri;}}
+{\*\generator Riched20 10.0.15063}\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\f0\fs22\lang9\par
+Setting environment for using XAMPP for Windows.\par
+726134@128-IMAC30 c:\\xampp\par
+# mysql -u root -p\par
+Enter password:\par
+Welcome to the MariaDB monitor.  Commands end with ; or \\g.\par
+Your MariaDB connection id is 2\par
+Server version: 10.1.21-MariaDB mariadb.org binary distribution\par
+\par
+Copyright (c) 2000, 2016, Oracle, MariaDB Corporation Ab and others.\par
+\par
+Type 'help;' or '\\h' for help. Type '\\c' to clear the current input statement.\par
+\par
+MariaDB [(none)]> show databases;\par
++--------------------+\par
+| Database           |\par
++--------------------+\par
+| information_schema |\par
+| mysql              |\par
+| performance_schema |\par
+| phpmyadmin         |\par
+| test               |\par
++--------------------+\par
+5 rows in set (0.00 sec)\par
+\par
+MariaDB [(none)]> Bye\par
+\par
+726134@128-IMAC30 c:\\xampp\par
+#\par
+\par
+726134@128-IMAC30 c:\\xampp\par
+# mysql -u root -p\par
+Enter password:\par
+Welcome to the MariaDB monitor.  Commands end with ; or \\g.\par
+Your MariaDB connection id is 3\par
+Server version: 10.1.21-MariaDB mariadb.org binary distribution\par
+\par
+Copyright (c) 2000, 2016, Oracle, MariaDB Corporation Ab and others.\par
+\par
+Type 'help;' or '\\h' for help. Type '\\c' to clear the current input statement.\par
+\par
+MariaDB [(none)]> show databases;\par
++--------------------+\par
+| Database           |\par
++--------------------+\par
+| information_schema |\par
+| mysql              |\par
+| performance_schema |\par
+| phpmyadmin         |\par
+| test               |\par
++--------------------+\par
+5 rows in set (0.00 sec)\par
+\par
+MariaDB [(none)]> create database csd2204w18;\par
+Query OK, 1 row affected (0.00 sec)\par
+\par
+MariaDB [(none)]> show databases;\par
++--------------------+\par
+| Database           |\par
++--------------------+\par
+| csd2204w18         |\par
+| information_schema |\par
+| mysql              |\par
+| performance_schema |\par
+| phpmyadmin         |\par
+| test               |\par
++--------------------+\par
+6 rows in set (0.00 sec)\par
+\par
+MariaDB [(none)]> use csd2204w18;\par
+Database changed\par
+MariaDB [csd2204w18]> show tables;\par
+Empty set (0.00 sec)\par
+\par
+MariaDB [csd2204w18]> create table customers(\par
+    -> customerID int(2),\par
+    -> name varchar(40),\par
+    -> nickname varchar(10),\par
+    -> address varchar(50),\par
+    -> city varchar(30),\par
+    -> postalcode int(6),\par
+    -> );\par
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')' at line 8\par
+MariaDB [csd2204w18]> create table customers(\par
+    -> customerID int(2),\par
+    -> name varchar(40),\par
+    -> nickname varchar(10),\par
+    -> address varchar(50),\par
+    -> city varchar(30),\par
+    -> postalcode int(6)\par
+    -> );\par
+Query OK, 0 rows affected (0.36 sec)\par
+\par
+MariaDB [csd2204w18]> desc customers;\par
++------------+-------------+------+-----+---------+-------+\par
+| Field      | Type        | Null | Key | Default | Extra |\par
++------------+-------------+------+-----+---------+-------+\par
+| customerID | int(2)      | YES  |     | NULL    |       |\par
+| name       | varchar(40) | YES  |     | NULL    |       |\par
+| nickname   | varchar(10) | YES  |     | NULL    |       |\par
+| address    | varchar(50) | YES  |     | NULL    |       |\par
+| city       | varchar(30) | YES  |     | NULL    |       |\par
+| postalcode | int(6)      | YES  |     | NULL    |       |\par
++------------+-------------+------+-----+---------+-------+\par
+6 rows in set (0.00 sec)\par
+\par
+MariaDB [csd2204w18]> show create table customers;\par
++-----------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+\par
+| Table     | Create Table                                                                                                                                                                                                                                                                                |\par
++-----------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+\par
+| customers | CREATE TABLE `customers` (\par
+  `customerID` int(2) DEFAULT NULL,\par
+  `name` varchar(40) DEFAULT NULL,\par
+  `nickname` varchar(10) DEFAULT NULL,\par
+  `address` varchar(50) DEFAULT NULL,\par
+  `city` varchar(30) DEFAULT NULL,\par
+  `postalcode` int(6) DEFAULT NULL\par
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 |\par
++-----------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+\par
+1 row in set (0.00 sec)\par
+\par
+MariaDB [csd2204w18]> insert into customers values(1,'rushang','rushi','north york','toronto',123456);\par
+Query OK, 1 row affected (0.06 sec)\par
+\par
+MariaDB [csd2204w18]> desc customers;\par
++------------+-------------+------+-----+---------+-------+\par
+| Field      | Type        | Null | Key | Default | Extra |\par
++------------+-------------+------+-----+---------+-------+\par
+| customerID | int(2)      | YES  |     | NULL    |       |\par
+| name       | varchar(40) | YES  |     | NULL    |       |\par
+| nickname   | varchar(10) | YES  |     | NULL    |       |\par
+| address    | varchar(50) | YES  |     | NULL    |       |\par
+| city       | varchar(30) | YES  |     | NULL    |       |\par
+| postalcode | int(6)      | YES  |     | NULL    |       |\par
++------------+-------------+------+-----+---------+-------+\par
+6 rows in set (0.00 sec)\par
+\par
+MariaDB [csd2204w18]> show table customers;\par
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'customers' at line 1\par
+MariaDB [csd2204w18]> select * from customers;\par
++------------+---------+----------+------------+---------+------------+\par
+| customerID | name    | nickname | address    | city    | postalcode |\par
++------------+---------+----------+------------+---------+------------+\par
+|          1 | rushang | rushi    | north york | toronto |     123456 |\par
++------------+---------+----------+------------+---------+------------+\par
+1 row in set (0.00 sec)\par
+\par
+MariaDB [csd2204w18]> select nickname from customers;\par
++----------+\par
+| nickname |\par
++----------+\par
+| rushi    |\par
++----------+\par
+1 row in set (0.00 sec)\par
+\par
+MariaDB [csd2204w18]> insert into customers values(2,'vaishnavi','sakhi','north york','toronto',123456);\par
+Query OK, 1 row affected (0.05 sec)\par
+\par
+MariaDB [csd2204w18]> insert into customers values(3,'abhishek','abhi','north york','toronto',123456);\par
+Query OK, 1 row affected (0.03 sec)\par
+\par
+MariaDB [csd2204w18]> delete customers;\par
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1\par
+MariaDB [csd2204w18]> delete table customers;\par
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'table customers' at line 1\par
+MariaDB [csd2204w18]> delete from customers;\par
+Query OK, 3 rows affected (0.05 sec)\par
+\par
+MariaDB [csd2204w18]> desc customers;\par
++------------+-------------+------+-----+---------+-------+\par
+| Field      | Type        | Null | Key | Default | Extra |\par
++------------+-------------+------+-----+---------+-------+\par
+| customerID | int(2)      | YES  |     | NULL    |       |\par
+| name       | varchar(40) | YES  |     | NULL    |       |\par
+| nickname   | varchar(10) | YES  |     | NULL    |       |\par
+| address    | varchar(50) | YES  |     | NULL    |       |\par
+| city       | varchar(30) | YES  |     | NULL    |       |\par
+| postalcode | int(6)      | YES  |     | NULL    |       |\par
++------------+-------------+------+-----+---------+-------+\par
+6 rows in set (0.00 sec)\par
+\par
+MariaDB [csd2204w18]> select * from customers;\par
+Empty set (0.00 sec)\par
+\par
+MariaDB [csd2204w18]> insert into customers values(1,'Ashley','Ash','32 Washington street','WDC',321200);\par
+Query OK, 1 row affected (0.01 sec)\par
+\par
+MariaDB [csd2204w18]> insert into customers values(2,'Bob marley','Bm','Keele street','toronto',100100);\par
+Query OK, 1 row affected (0.05 sec)\par
+\par
+MariaDB [csd2204w18]> insert into customers values(3,'Cherlies Theron','Cher','329 Empire state Building','north york',120134);\par
+Query OK, 1 row affected (0.03 sec)\par
+726134@128-IMAC30 c:\\xampp\par
+# mysql -u root -p\par
+Enter password:\par
+Welcome to the MariaDB monitor.  Commands end with ; or \\g.\par
+Your MariaDB connection id is 4\par
+Server version: 10.1.21-MariaDB mariadb.org binary distribution\par
+\par
+Copyright (c) 2000, 2016, Oracle, MariaDB Corporation Ab and others.\par
+\par
+Type 'help;' or '\\h' for help. Type '\\c' to clear the current input statement.\par
+\par
+MariaDB [(none)]> create database csd2204w18;\par
+ERROR 1007 (HY000): Can't create database 'csd2204w18'; database exists\par
+MariaDB [(none)]> use csd2204w18;\par
+Database changed\par
+MariaDB [csd2204w18]> select * from customers;\par
++------------+-----------------+----------+---------------------------+------------+------------+\par
+| customerID | name            | nickname | address                   | city       | postalcode |\par
++------------+-----------------+----------+---------------------------+------------+------------+\par
+|          1 | Ashley          | Ash      | 32 Washington street      | WDC        |     321200 |\par
+|          2 | Bob marley      | Bm       | Keele street              | toronto    |     100100 |\par
+|          3 | Cherlies Theron | Cher     | 329 Empire state Building | north york |     120134 |\par
++------------+-----------------+----------+---------------------------+------------+------------+\par
+3 rows in set (0.00 sec)\par
+\par
+MariaDB [csd2204w18]> insert into customers values(4,'deniel jack','Dj','spartan Building, east','brazil',341020);\par
+Query OK, 1 row affected (0.10 sec)\par
+\par
+MariaDB [csd2204w18]> insert into customers values(5,'donna newman','new','250 carlson blvd','toronto',130120);\par
+Query OK, 1 row affected (0.03 sec)\par
+\par
+MariaDB [csd2204w18]> insert into customers values(6,'eston m.','m.','21 york. dv.','toronto',201023);\par
+Query OK, 1 row affected (0.07 sec)\par
+\par
+MariaDB [csd2204w18]> insert into customers values(7,'bobby chacko','chac','kennedy','new york',320300);\par
+Query OK, 1 row affected (0.09 sec)\par
+\par
+MariaDB [csd2204w18]> insert into customers values(8,'ashko charles','ak','washington dc','usa',421044);\par
+Query OK, 1 row affected (0.05 sec)\par
+\par
+MariaDB [csd2204w18]> insert into customers values(9,'tony special','specie','oakville','gta',418921);\par
+Query OK, 1 row affected (0.04 sec)\par
+\par
+MariaDB [csd2204w18]> insert into customers values(10,'jack sp','sparrow','oakville','gta',418921);\par
+Query OK, 1 row affected (0.03 sec)\par
+\par
+MariaDB [csd2204w18]> select * from customers;\par
++------------+-----------------+----------+---------------------------+------------+------------+\par
+| customerID | name            | nickname | address                   | city       | postalcode |\par
++------------+-----------------+----------+---------------------------+------------+------------+\par
+|          1 | Ashley          | Ash      | 32 Washington street      | WDC        |     321200 |\par
+|          2 | Bob marley      | Bm       | Keele street              | toronto    |     100100 |\par
+|          3 | Cherlies Theron | Cher     | 329 Empire state Building | north york |     120134 |\par
+|          4 | deniel jack     | Dj       | spartan Building, east    | brazil     |     341020 |\par
+|          5 | donna newman    | new      | 250 carlson blvd          | toronto    |     130120 |\par
+|          6 | eston m.        | m.       | 21 york. dv.              | toronto    |     201023 |\par
+|          7 | bobby chacko    | chac     | kennedy                   | new york   |     320300 |\par
+|          8 | ashko charles   | ak       | washington dc             | usa        |     421044 |\par
+|          9 | tony special    | specie   | oakville                  | gta        |     418921 |\par
+|         10 | jack sp         | sparrow  | oakville                  | gta        |     418921 |\par
++------------+-----------------+----------+---------------------------+------------+------------+\par
+10 rows in set (0.00 sec)\par
+\par
+MariaDB [csd2204w18]> select * from customers where city = 'toronto';\par
++------------+--------------+----------+------------------+---------+------------+\par
+| customerID | name         | nickname | address          | city    | postalcode |\par
++------------+--------------+----------+------------------+---------+------------+\par
+|          2 | Bob marley   | Bm       | Keele street     | toronto |     100100 |\par
+|          5 | donna newman | new      | 250 carlson blvd | toronto |     130120 |\par
+|          6 | eston m.     | m.       | 21 york. dv.     | toronto |     201023 |\par
++------------+--------------+----------+------------------+---------+------------+\par
+3 rows in set (0.00 sec)\par
+\par
+MariaDB [csd2204w18]> select * from customers where name = 'Ashley';\par
++------------+--------+----------+----------------------+------+------------+\par
+| customerID | name   | nickname | address              | city | postalcode |\par
++------------+--------+----------+----------------------+------+------------+\par
+|          1 | Ashley | Ash      | 32 Washington street | WDC  |     321200 |\par
++------------+--------+----------+----------------------+------+------------+\par
+1 row in set (0.00 sec)\par
+\par
+MariaDB [csd2204w18]> select * from customers where customerID >= 5;\par
++------------+---------------+----------+------------------+----------+------------+\par
+| customerID | name          | nickname | address          | city     | postalcode |\par
++------------+---------------+----------+------------------+----------+------------+\par
+|          5 | donna newman  | new      | 250 carlson blvd | toronto  |     130120 |\par
+|          6 | eston m.      | m.       | 21 york. dv.     | toronto  |     201023 |\par
+|          7 | bobby chacko  | chac     | kennedy          | new york |     320300 |\par
+|          8 | ashko charles | ak       | washington dc    | usa      |     421044 |\par
+|          9 | tony special  | specie   | oakville         | gta      |     418921 |\par
+|         10 | jack sp       | sparrow  | oakville         | gta      |     418921 |\par
++------------+---------------+----------+------------------+----------+------------+\par
+6 rows in set (0.00 sec)\par
+\par
+MariaDB [csd2204w18]> select * from customers where city = 'toronto' or city = 'new york';\par
++------------+--------------+----------+------------------+----------+------------+\par
+| customerID | name         | nickname | address          | city     | postalcode |\par
++------------+--------------+----------+------------------+----------+------------+\par
+|          2 | Bob marley   | Bm       | Keele street     | toronto  |     100100 |\par
+|          5 | donna newman | new      | 250 carlson blvd | toronto  |     130120 |\par
+|          6 | eston m.     | m.       | 21 york. dv.     | toronto  |     201023 |\par
+|          7 | bobby chacko | chac     | kennedy          | new york |     320300 |\par
++------------+--------------+----------+------------------+----------+------------+\par
+4 rows in set (0.00 sec)\par
+\par
+MariaDB [csd2204w18]> select * from customers where nickname = 'bm' and city = 'toronto';\par
++------------+------------+----------+--------------+---------+------------+\par
+| customerID | name       | nickname | address      | city    | postalcode |\par
++------------+------------+----------+--------------+---------+------------+\par
+|          2 | Bob marley | Bm       | Keele street | toronto |     100100 |\par
++------------+------------+----------+--------------+---------+------------+\par
+1 row in set (0.00 sec)\par
+\par
+MariaDB [csd2204w18]> select * from customers where customerID = 4 or customerID = 6;\par
++------------+-------------+----------+------------------------+---------+------------+\par
+| customerID | name        | nickname | address                | city    | postalcode |\par
++------------+-------------+----------+------------------------+---------+------------+\par
+|          4 | deniel jack | Dj       | spartan Building, east | brazil  |     341020 |\par
+|          6 | eston m.    | m.       | 21 york. dv.           | toronto |     201023 |\par
++------------+-------------+----------+------------------------+---------+------------+\par
+2 rows in set (0.00 sec)\par
+\par
+MariaDB [csd2204w18]> select * from customers where customerID between 2 and 7;\par
++------------+-----------------+----------+---------------------------+------------+------------+\par
+| customerID | name            | nickname | address                   | city       | postalcode |\par
++------------+-----------------+----------+---------------------------+------------+------------+\par
+|          2 | Bob marley      | Bm       | Keele street              | toronto    |     100100 |\par
+|          3 | Cherlies Theron | Cher     | 329 Empire state Building | north york |     120134 |\par
+|          4 | deniel jack     | Dj       | spartan Building, east    | brazil     |     341020 |\par
+|          5 | donna newman    | new      | 250 carlson blvd          | toronto    |     130120 |\par
+|          6 | eston m.        | m.       | 21 york. dv.              | toronto    |     201023 |\par
+|          7 | bobby chacko    | chac     | kennedy                   | new york   |     320300 |\par
++------------+-----------------+----------+---------------------------+------------+------------+\par
+6 rows in set (0.00 sec)\par
+\par
+MariaDB [csd2204w18]> select * from customers where customerID between 7 and 2;\par
+Empty set (0.00 sec)\par
+\par
+MariaDB [csd2204w18]> select * from customers where customerID between 'bm' and 'new';\par
+Empty set, 20 warnings (0.00 sec)\par
+\par
+MariaDB [csd2204w18]> select * from customers where nickname between 'bm' and 'new';\par
++------------+-----------------+----------+---------------------------+------------+------------+\par
+| customerID | name            | nickname | address                   | city       | postalcode |\par
++------------+-----------------+----------+---------------------------+------------+------------+\par
+|          2 | Bob marley      | Bm       | Keele street              | toronto    |     100100 |\par
+|          3 | Cherlies Theron | Cher     | 329 Empire state Building | north york |     120134 |\par
+|          4 | deniel jack     | Dj       | spartan Building, east    | brazil     |     341020 |\par
+|          5 | donna newman    | new      | 250 carlson blvd          | toronto    |     130120 |\par
+|          6 | eston m.        | m.       | 21 york. dv.              | toronto    |     201023 |\par
+|          7 | bobby chacko    | chac     | kennedy                   | new york   |     320300 |\par
++------------+-----------------+----------+---------------------------+------------+------------+\par
+6 rows in set (0.00 sec)\par
+\par
+MariaDB [csd2204w18]> select * from customers where nickname>='bm' and nickname<='new';\par
++------------+-----------------+----------+---------------------------+------------+------------+\par
+| customerID | name            | nickname | address                   | city       | postalcode |\par
++------------+-----------------+----------+---------------------------+------------+------------+\par
+|          2 | Bob marley      | Bm       | Keele street              | toronto    |     100100 |\par
+|          3 | Cherlies Theron | Cher     | 329 Empire state Building | north york |     120134 |\par
+|          4 | deniel jack     | Dj       | spartan Building, east    | brazil     |     341020 |\par
+|          5 | donna newman    | new      | 250 carlson blvd          | toronto    |     130120 |\par
+|          6 | eston m.        | m.       | 21 york. dv.              | toronto    |     201023 |\par
+|          7 | bobby chacko    | chac     | kennedy                   | new york   |     320300 |\par
++------------+-----------------+----------+---------------------------+------------+------------+\par
+6 rows in set (0.00 sec)\par
+\par
+MariaDB [csd2204w18]> select * from customers where nickname>='Bm' and nickname<='new';\par
++------------+-----------------+----------+---------------------------+------------+------------+\par
+| customerID | name            | nickname | address                   | city       | postalcode |\par
++------------+-----------------+----------+---------------------------+------------+------------+\par
+|          2 | Bob marley      | Bm       | Keele street              | toronto    |     100100 |\par
+|          3 | Cherlies Theron | Cher     | 329 Empire state Building | north york |     120134 |\par
+|          4 | deniel jack     | Dj       | spartan Building, east    | brazil     |     341020 |\par
+|          5 | donna newman    | new      | 250 carlson blvd          | toronto    |     130120 |\par
+|          6 | eston m.        | m.       | 21 york. dv.              | toronto    |     201023 |\par
+|          7 | bobby chacko    | chac     | kennedy                   | new york   |     320300 |\par
++------------+-----------------+----------+---------------------------+------------+------------+\par
+6 rows in set (0.00 sec)\par
+\par
+MariaDB [csd2204w18]> select * from customers where nickname between 'new' and 'bm';\par
+Empty set (0.00 sec)\par
+\par
+MariaDB [csd2204w18]> select * from customers where name like 'd%';\par
++------------+--------------+----------+------------------------+---------+------------+\par
+| customerID | name         | nickname | address                | city    | postalcode |\par
++------------+--------------+----------+------------------------+---------+------------+\par
+|          4 | deniel jack  | Dj       | spartan Building, east | brazil  |     341020 |\par
+|          5 | donna newman | new      | 250 carlson blvd       | toronto |     130120 |\par
++------------+--------------+----------+------------------------+---------+------------+\par
+2 rows in set (0.00 sec)\par
+\par
+MariaDB [csd2204w18]> select * from customers where city like 'n%';\par
++------------+-----------------+----------+---------------------------+------------+------------+\par
+| customerID | name            | nickname | address                   | city       | postalcode |\par
++------------+-----------------+----------+---------------------------+------------+------------+\par
+|          3 | Cherlies Theron | Cher     | 329 Empire state Building | north york |     120134 |\par
+|          7 | bobby chacko    | chac     | kennedy                   | new york   |     320300 |\par
++------------+-----------------+----------+---------------------------+------------+------------+\par
+2 rows in set (0.00 sec)\par
+\par
+MariaDB [csd2204w18]> select * from customers where name like '%o%';\par
++------------+-----------------+----------+---------------------------+------------+------------+\par
+| customerID | name            | nickname | address                   | city       | postalcode |\par
++------------+-----------------+----------+---------------------------+------------+------------+\par
+|          2 | Bob marley      | Bm       | Keele street              | toronto    |     100100 |\par
+|          3 | Cherlies Theron | Cher     | 329 Empire state Building | north york |     120134 |\par
+|          5 | donna newman    | new      | 250 carlson blvd          | toronto    |     130120 |\par
+|          6 | eston m.        | m.       | 21 york. dv.              | toronto    |     201023 |\par
+|          7 | bobby chacko    | chac     | kennedy                   | new york   |     320300 |\par
+|          8 | ashko charles   | ak       | washington dc             | usa        |     421044 |\par
+|          9 | tony special    | specie   | oakville                  | gta        |     418921 |\par
++------------+-----------------+----------+---------------------------+------------+------------+\par
+7 rows in set (0.00 sec)\par
+\par
+MariaDB [csd2204w18]> select * from customers where name like '_o%';\par
++------------+--------------+----------+------------------+----------+------------+\par
+| customerID | name         | nickname | address          | city     | postalcode |\par
++------------+--------------+----------+------------------+----------+------------+\par
+|          2 | Bob marley   | Bm       | Keele street     | toronto  |     100100 |\par
+|          5 | donna newman | new      | 250 carlson blvd | toronto  |     130120 |\par
+|          7 | bobby chacko | chac     | kennedy          | new york |     320300 |\par
+|          9 | tony special | specie   | oakville         | gta      |     418921 |\par
++------------+--------------+----------+------------------+----------+------------+\par
+4 rows in set (0.00 sec)\par
+\par
+MariaDB [csd2204w18]> select * from customers where name like '_on%';\par
++------------+--------------+----------+------------------+---------+------------+\par
+| customerID | name         | nickname | address          | city    | postalcode |\par
++------------+--------------+----------+------------------+---------+------------+\par
+|          5 | donna newman | new      | 250 carlson blvd | toronto |     130120 |\par
+|          9 | tony special | specie   | oakville         | gta     |     418921 |\par
++------------+--------------+----------+------------------+---------+------------+\par
+2 rows in set (0.00 sec)\par
+\par
+MariaDB [csd2204w18]> select * from customers where name like '_o_n%';\par
++------------+--------------+----------+------------------+---------+------------+\par
+| customerID | name         | nickname | address          | city    | postalcode |\par
++------------+--------------+----------+------------------+---------+------------+\par
+|          5 | donna newman | new      | 250 carlson blvd | toronto |     130120 |\par
++------------+--------------+----------+------------------+---------+------------+\par
+1 row in set (0.00 sec)\par
+\par
+MariaDB [csd2204w18]> select * from customers where name like 'd%'and  city='toronto';\par
++------------+--------------+----------+------------------+---------+------------+\par
+| customerID | name         | nickname | address          | city    | postalcode |\par
++------------+--------------+----------+------------------+---------+------------+\par
+|          5 | donna newman | new      | 250 carlson blvd | toronto |     130120 |\par
++------------+--------------+----------+------------------+---------+------------+\par
+1 row in set (0.00 sec)\par
+\par
+MariaDB [csd2204w18]> select * from customers where customerID=2,4,7,9;\par
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '4,7,9' at line 1\par
+MariaDB [csd2204w18]> select * from customers where customerID in (2,4,7,9);\par
++------------+--------------+----------+------------------------+----------+------------+\par
+| customerID | name         | nickname | address                | city     | postalcode |\par
++------------+--------------+----------+------------------------+----------+------------+\par
+|          2 | Bob marley   | Bm       | Keele street           | toronto  |     100100 |\par
+|          4 | deniel jack  | Dj       | spartan Building, east | brazil   |     341020 |\par
+|          7 | bobby chacko | chac     | kennedy                | new york |     320300 |\par
+|          9 | tony special | specie   | oakville               | gta      |     418921 |\par
++------------+--------------+----------+------------------------+----------+------------+\par
+4 rows in set (0.00 sec)\par
+\par
+MariaDB [csd2204w18]> select * from customers where nickname in ('dm','jk');\par
+Empty set (0.00 sec)\par
+\par
+MariaDB [csd2204w18]> select * from customers where nickname in ('dm','ak');\par
++------------+---------------+----------+---------------+------+------------+\par
+| customerID | name          | nickname | address       | city | postalcode |\par
++------------+---------------+----------+---------------+------+------------+\par
+|          8 | ashko charles | ak       | washington dc | usa  |     421044 |\par
++------------+---------------+----------+---------------+------+------------+\par
+1 row in set (0.00 sec)\par
+\par
+MariaDB [csd2204w18]> select * from customers where nickname in ('bm','ak');\par
++------------+---------------+----------+---------------+---------+------------+\par
+| customerID | name          | nickname | address       | city    | postalcode |\par
++------------+---------------+----------+---------------+---------+------------+\par
+|          2 | Bob marley    | Bm       | Keele street  | toronto |     100100 |\par
+|          8 | ashko charles | ak       | washington dc | usa     |     421044 |\par
++------------+---------------+----------+---------------+---------+------------+\par
+2 rows in set (0.00 sec)\par
+\par
+MariaDB [csd2204w18]>\par
+}
+ 
